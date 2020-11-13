@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+
+        Congrats! You made all the {{Constants.num_rounds}} choices.
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>Lottery pair</th>
+            <th>Your choice</th>
+
+        </tr>
+        {% for player in player_in_all_rounds %}
+            <tr>
+                <td>{{ player.round_number }}</td>
+                <td>{{ player.lottery_picked }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+    {% next_button %}
+{% endblock %}
